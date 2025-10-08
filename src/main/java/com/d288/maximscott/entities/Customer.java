@@ -53,4 +53,13 @@ public class Customer {
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private Set<Cart> carts;
 
+    //adding add helper function for one-to-many relationship
+    public void add(Cart cart) {
+        if (cart != null) {
+            carts.add(cart);
+            cart.setCustomer(this);
+        }
+
+    }
+
 }
