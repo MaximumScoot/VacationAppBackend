@@ -44,13 +44,11 @@ public class Cart {
     @Column(name = "order_tracking_number")
     private String orderTrackingNumber;
 
-    @Column(name = "postal_code")
-    private String postal_code;
 
     //Relationships: many-to-one, each cart belongs to one customer, FK is customer_id.
     //one-to-many, cart can have multiple cart items. cascade so cart items are persisted/deleted with cart.
     @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)

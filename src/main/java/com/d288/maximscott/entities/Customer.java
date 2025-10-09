@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -52,7 +53,7 @@ public class Customer {
     private Division division;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private Set<Cart> carts;
+    private Set<Cart> carts = new HashSet<>();
 
     //adding add helper function for one-to-many relationship
     public void add(Cart cart) {
