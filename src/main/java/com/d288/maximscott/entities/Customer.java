@@ -14,13 +14,14 @@ import java.util.Set;
 public class Customer {
 
     //Mapping PK for Country.
+    //adding validation to enforce inputs needed by Angular front end.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "customer_id")
+    @Column(name = "customer_id", nullable = false)
     private Long id;
 
     //Mapping the rest of the database columns, including metadata for creation and update timestamps.
-    @Column(name = "address")
+    @Column(name = "address", nullable = false)
     private String address;
 
     @Column(name = "create_date")
@@ -31,16 +32,16 @@ public class Customer {
     @UpdateTimestamp
     private Date last_update;
 
-    @Column(name = "customer_first_name")
+    @Column(name = "customer_first_name", nullable = false)
     private String firstName;
 
-    @Column(name = "customer_last_name")
+    @Column(name = "customer_last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "phone")
+    @Column(name = "phone", nullable = false)
     private String phone;
 
-    @Column(name = "postal_code")
+    @Column(name = "postal_code", nullable = false)
     private String postal_code;
 
 
